@@ -40,6 +40,7 @@ func Connect() {
 
 dsn := os.Getenv("MYSQL")
 
+	godotenv.Load()
 	var err error
 	DB, err = sql.Open("mysql", dsn)
 
