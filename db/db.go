@@ -28,6 +28,7 @@ package db
 import (
 	"database/sql"
 	"log"
+	"os"
 
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -35,7 +36,7 @@ import (
 var DB *sql.DB
 
 func Connect() {
-dsn := "root:dgstFAeTojWneuiaOEFsjfKUvVqHTuey@tcp(hopper.proxy.rlwy.net:50741)/quanlylophoc"
+dsn := os.Getenv("MYSQL")
 
 	var err error
 	DB, err = sql.Open("mysql", dsn)
