@@ -28,19 +28,15 @@ package db
 import (
 	"database/sql"
 	"log"
-	"os"
 
-	"github.com/joho/godotenv"
 	_ "github.com/go-sql-driver/mysql"
 )
 
 var DB *sql.DB
 
 func Connect() {
+dsn := "root:dgstFAeTojWneuiaOEFsjfKUvVqHTuey@tcp(hopper.proxy.rlwy.net:50741)/quanlylophoc"
 
-dsn := os.Getenv("MYSQL")
-
-	godotenv.Load()
 	var err error
 	DB, err = sql.Open("mysql", dsn)
 
