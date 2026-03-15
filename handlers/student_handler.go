@@ -54,7 +54,8 @@ func UpdateStudent(w http.ResponseWriter, r *http.Request) {
     id := params["id"]
     var u models.Student
     json.NewDecoder(r.Body).Decode(&u)
-    db.DB.Exec("UPDATE student SET  name=?,email=?, phone=? WHERE id=?",  u.NAME,u.EMAIL, u.ClassID, id)
+    // Cập nhật đúng các cột: name, email, class_id
+    db.DB.Exec("UPDATE student SET name=?, email=?, class_id=? WHERE id=?", u.NAME, u.EMAIL, u.ClassID, id)
     u.ID, _ = strconv.Atoi(id)
     json.NewEncoder(w).Encode(u)
 }
