@@ -10,9 +10,9 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// ============================
+
 // GET ALL CLASSES
-// ============================
+
 func GetClasses(w http.ResponseWriter, r *http.Request) {
 
 	rows, err := db.DB.Query("SELECT id,name,teacher_id FROM class")
@@ -38,9 +38,9 @@ func GetClasses(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(classes)
 }
 
-// ============================
+
 // GET CLASS BY ID
-// ============================
+
 func GetClass(w http.ResponseWriter, r *http.Request) {
 
 	params := mux.Vars(r)
@@ -59,9 +59,9 @@ func GetClass(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(c)
 }
 
-// ============================
+
 // CREATE CLASS
-// ============================
+
 func CreateClass(w http.ResponseWriter, r *http.Request) {
 
 	var c models.Class
@@ -89,9 +89,9 @@ func CreateClass(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(c)
 }
 
-// ============================
+
 // UPDATE CLASS
-// ============================
+
 func UpdateClass(w http.ResponseWriter, r *http.Request) {
 
 	params := mux.Vars(r)
@@ -122,9 +122,8 @@ func UpdateClass(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(c)
 }
 
-// ============================
 // DELETE CLASS
-// ============================
+
 func DeleteClass(w http.ResponseWriter, r *http.Request) {
 
 	params := mux.Vars(r)

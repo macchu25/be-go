@@ -41,13 +41,13 @@ dsn := "root:dgstFAeTojWneuiaOEFsjfKUvVqHTuey@tcp(hopper.proxy.rlwy.net:50741)/q
 	DB, err = sql.Open("mysql", dsn)
 
 	if err != nil {
-		log.Fatal("❌ Cannot connect database:", err)
+		log.Fatal(" Cannot connect database:", err)
 	}
 
 	err = DB.Ping()
 	if err != nil {
-		log.Fatal("❌ Cannot ping database:", err)
+		log.Fatal(" Cannot ping database:", err)
 	}
 
-	log.Println("✅ Connected to Railway MySQL")
+	log.Println(" Connected to Railway MySQL")
 }
